@@ -1,0 +1,569 @@
+// 参照 element-ui 进行书写 eslint 配置文件
+{
+    // 根配置文件 eslint 找到这一级就不往父级找
+    "root": true,
+
+    // 指定代码环境
+    "env": {
+        "browser": true,
+        "node": true,
+        "amd": false,
+        "mocha": false,
+        "jasmine": false
+    },
+
+    // 全局变量定义
+    "globals": {
+        // 定义一个全局变量 defineModel
+        "defineModel": true
+    },
+
+    "parserOptions": {
+        // 使用最新的 ECMAScript 版本
+        // "ecmaVersion": "latest",
+        "ecmaVersion": 12,
+
+        // ES模块化
+        "sourceType": "module",
+
+        "ecmaFeatures": {
+            // 支持 jsx
+            "jsx": true,
+            // 启用实验性的 object rest/spread properties 支持。(**重要：**这是一个实验性的功能,在未来可能会有明显改变。 建议你写的规则 不要 依赖该功能，除非当它发生改变时你愿意承担维护成本。)
+            "experimentalObjectRestSpread": false
+        }
+    },
+    // 规则查阅文档 https://nodejs.cn/eslint/rules
+    "rules": {
+        // 规则 2 1 0 对应 error warn off
+
+        // 如果对象定义了 setter 而没有 getter，该规则会发出 error
+        "accessor-pairs": 2,
+
+        // 不禁止或强制在数组内留有空格
+        "array-bracket-spacing": 0,
+
+        // 不禁止变量在定义外的地方使用
+        "block-scoped-var": 0,
+
+        // 大括号风格要求 1tbs 要求大括号必须放在声明语句的一行 allowSingleLine 允许块的开括号和闭括号在同一行
+        "brace-style": [2, "1tbs", { "allowSingleLine": true }],
+
+        // 不要求必须使用驼峰命名法
+        "camelcase": 0,
+
+        // 总是禁止使用拖尾逗号 不管何种数据类型
+        "comma-dangle": [2, "never"],
+
+        // 强制在逗号后使用一个或多个空格 禁止在逗号前使用空格
+        "comma-spacing": [2, { "before": false, "after": true }],
+
+        // 逗号风格，last 在数组元素，对象属性或变量声明的同一行之后和同一行上需要一个逗号
+        "comma-style": [2, "last"],
+
+        // 关闭控制代码复杂度
+        "complexity": 0,
+
+        // 关闭禁止或强制在计算属性中使用空格
+        "computed-property-spacing": 0, 
+
+        // 不要求 return 语句始终或从不指定值
+        "consistent-return": 0,
+
+        /**
+        此规则对具有指定别名 this 的变量强制执行两件事：
+
+            如果声明了具有指定名称的变量，则必须将其初始化（在声明中）或分配（在与声明相同的范围内）值 this。
+            如果变量被初始化或赋值为 this，则变量的名称必须是指定的别名
+        */
+        "consistent-this": 0,
+
+        // 要求 派生类的构造函数必须调用 super()。非派生类的构造函数不能调用 super()
+        "constructor-super": 2,
+
+        // 对所有控制语句强制使用一致的大括号样式 但 放宽规则 multi-line 以允许无括号单行 if、else if、else、for、while 或 do，同时仍强制对其他实例使用大括号
+        "curly": [2, "multi-line"],
+
+        // 不要求 switch 必须有 default
+        "default-case": 0,
+
+        // 要求点和属性位于同一行
+        "dot-location": [2, "property"],
+
+        // 不强制使用对象.属性的方式
+        "dot-notation": 0,
+
+        // 在非空文件的末尾强制执行至少一个换行符
+        "eol-last": 2,
+
+        // 强制使用 === !== 
+        "eqeqeq": [2, "always"],
+
+        // 不禁止使用命名函数表达式
+        "func-names": 0,
+
+        // 不强制使用一致的 function 声明或表达式
+        "func-style": 0,
+
+        // 在生成器函数前后使用空格
+        "generator-star-spacing": [2, { "before": true, "after": true }],
+
+        // 不强制使用 for in 循环中使用 if 进行过滤 (原型链)
+        "guard-for-in": 0,
+
+        // 期望使用 node 中使用回调模式时，处理错误  参数 err error
+        "handle-callback-err": [2, "^(err|error)$"],
+
+        // 强制一致的缩紧 4个空格 强制 switch 语句中 case 子句的缩进级别
+        "indent": [2, 4, { "SwitchCase": 1 }],
+
+        // 要求在对象字面属性中强制键和值之间的间距一致 beforeColon false 不允许对象字面量中的键和冒号之间有空格 afterColon true s在冒号和对象字面中的值之间至少需要一个空格
+        "key-spacing": [2, { "beforeColon": false, "afterColon": true }],
+
+        // 强制执行一致的换行样式
+        "linebreak-style": 0,
+
+        // 不要求 注释周围需要空行
+        "lines-around-comment": 0,
+
+        // 不强制执行回调可以嵌套的最大深度以提高代码清晰度。
+        "max-nested-callbacks": 0,
+
+        // 构造函数以大写字母开头
+        "new-cap": [2, { "newIsCap": true, "capIsNew": false }],
+
+        // 当使用 new 关键字调用不带参数的构造函数时，此规则可以强制或禁止使用括号
+        "new-parens": 2,
+
+        // 不强制执行编码风格，其中在 var、let 或 const 语句之后需要或不允许空行，以在整个项目中实现一致的编码风格
+        "newline-after-var": 0,
+
+        // 不禁止使用 alert、confirm 和 prompt
+        "no-alert": 0,
+
+        // 不允许 Array 构造函数
+        "no-array-constructor": 2,
+
+        // 禁止使用 arguments.caller 或 arguments.callee
+        "no-caller": 2,
+
+        // catch 子句参数可能会泄漏到外部范围。每当遇到与外部作用域中的变量同名的 catch 子句参数时，此规则都会发出警告 现关闭
+        "no-catch-shadow": 0,
+
+        // 禁止 条件表达式中的赋值运算符
+        "no-cond-assign": 2,
+
+        // 不禁止 使用 console
+        "no-console": 0,
+
+        // 不禁止条件中的常量表达式 if (true)  while (true)
+        "no-constant-condition": 0,
+
+        // 不禁止使用 continue 语句
+        "continue": 0,
+
+        // 不允许控制字符和某些与正则表达式中的控制字符匹配的转义序列
+        "no-control-regex": 2,
+
+        // 禁止使用 debugger
+        "no-debugger": 2,
+
+        // 不允许删除变量 delete 用作删除对象中的属性 不允许对变量进行使用
+        "no-delete-var": 2,
+
+        // 不禁止 在正则表达式的开头明确禁止除法运算符
+        "no-div-regex": 0,
+
+        // 不允许 function 定义中的重复参数
+        "no-dupe-args": 2,
+
+        // 禁止对象字面量中的重复键
+        "no-dupe-keys": 2,
+
+        // 不允许在 switch 语句的 case 子句中出现重复的测试表达式 case one: break; case one break; 不允许
+        "no-duplicate-case": 2,
+
+        // 在 if 语句中的 return 语句之后不禁止 else 块
+        "no-else-return": 0,
+
+        // 不禁止空块语句
+        "no-empty": 0,
+
+        // 禁止在正则表达式中使用空字符类
+        "no-empty-character-class": 2,
+
+        // 允许没有类型检查运算符的 null 比较
+        "no-eq-null": 0,
+
+        // 禁止使用 eval()
+        "no-eval": 2,
+
+        // 不允许在 catch 子句中重新分配异常 catch(e) e = 10; error
+        "no-ex-assign": 2,
+
+        // 不允许直接修改内置对象的原型
+        "no-extend-native": 2,
+
+        // 禁止对 .bind() 进行不必要的调用
+        "no-extra-bind": 2,
+
+        // 不允许不必要的布尔类型转换 如 if (!!one) 等价 if (one)
+        "no-extra-boolean-cast": 2,
+
+        // 不禁止不必要的括号 (/abc/).test(var) => /abc/.test(var) 提高可读性
+        "no-extra-parens": 0,
+
+        // 不禁止不必要的分号
+        "no-extra-semi": 0,
+
+        // 不允许 case 语句的失败
+        "no-fallthrough": 2,
+
+        // 不允许数字字面中的前导或尾随小数点 .7  -.5  2.  都是合法的 但是不推荐
+        "no-floating-decimal": 2,
+
+        // 不允许重新分配 function 声明 var foo function foo() 覆盖
+        "no-func-assign": 2,
+
+        // 禁止使用类似 eval() 的方法 例如 setTimeout setInterval 的第一个参数可以接受一个js的代码串
+        "no-implied-eval": 2,
+
+        // 不禁止代码后的内联注释
+        "no-inline-comments": 0,
+
+        // 禁止嵌套块中的变量或 function 声明
+        "no-inner-declarations": [2, "functions"],
+
+        // 不允许在 RegExp 构造函数中使用无效的正则表达式字符串
+        "no-invalid-regexp": 2, 
+
+        // 禁止不规则空格
+        "no-irregular-whitespace": 2,
+
+        // 禁止使用 __iterator__ 属性
+        "no-iterator": 2,
+
+        // 禁止与变量共享名称的标签
+        "no-label-var": 2,
+
+        // 禁止带标签的语句 break 标签
+        "no-labels": 2,
+
+        // 禁止不必要的嵌套块
+        "no-lone-blocks": 2,
+
+        // 不禁止 if 语句作为 else 块中的唯一语句 if (flag) {} else { if (fl) {}}
+        "no-lonely-if": 0,
+
+        // 不禁止在循环语句中包含不安全引用的函数声明
+        "no-loop-func": 0,
+
+        /*
+        启用此规则后，每条 var 语句必须满足以下条件：
+
+            none 或 all 变量声明必须是 require 声明（默认）
+            所有要求声明必须是同一类型（分组）
+            该规则区分了六种变量声明类型：
+
+            core：需要的核心模块的声明
+            file：需要的文件模块的声明
+            module：从 node_modules 文件夹 声明所需模块
+            computed：无法确定类型的必需模块的声明（因为它是计算的，或者因为在没有参数的情况下调用了require）
+            uninitialized：未初始化的声明
+            other：任何其他类型的声明
+        */
+        "no-mixed-requires": 0,
+
+        // 不允许使用混合空格和制表符进行缩进
+        "no-mixed-spaces-and-tabs": 2,
+
+        // 禁止多个空格
+        "no-multi-spaces": 2,
+
+        // 禁止多行字符串
+        "no-multi-str": 2,
+
+        // 超过最大空行数时会发出error 指定最大空行为1行
+        "no-multiple-empty-lines": [2, { "max": 1 }],
+
+        // 不允许修改只读全局变量 undefined = 1
+        "no-native-reassign": 2,
+
+        // 不允许对 in 表达式中的左操作数取反
+        "no-negated-in-lhs": 2,
+
+        // 允许嵌套三元表达式
+        "no-nested-ternary": 0,
+
+        // 禁止使用不将结果对象分配给变量的 new 关键字的构造函数调用来保持一致性和约定
+        "no-new": 2,
+
+        // 不禁止带有 Function 对象的 new 运算符  var x = new Function("a", "b", "return a + b");
+        "no-new-func": 0,
+
+        // 禁止 Object 构造函数 但可以使用对象字面量 {}
+        "no-new-object": 2,
+
+        // 禁止对 new require 表达式的使用
+        "no-new-require": 2,
+
+        // 禁止带有 String、Number 和 Boolean 对象的 new 运算符
+        "no-new-wrappers": 2,
+
+        // 禁止将全局对象属性作为函数调用 Math()
+        "no-obj-calls": 2,
+
+        // 禁止八进制字面 071 57
+        "no-octal": 2,
+
+        // 禁止字符串字面中的八进制转义序列 字符串字面中的八进制转义序列已被弃用，不应使用。应改为使用 Unicode 转义序列 var foo = "Copyright \251";
+        "no-octal-escape": 2,
+
+        // 允许重新分配 function 参数 function(a) { a = 3 }; 防止因修改或重新分配函数参数而导致的意外行为 现在关闭
+        "no-param-reassign": 0,
+
+        // 防止 Node.js 中目录路径的字符串连接 使用 path.resolve 和 path.join  __dirname + "/foo.js"; 不推荐
+        "no-path-concat": 2,
+
+        // 不阻止使用 process.env 以避免全局依赖
+        "no-process-env": 0,
+
+        // 不禁止在 Node.js JavaScript 中使用 process.exit()
+        "no-process-exit": 0,
+
+        // 不禁止使用 __proto__ 属性
+        "no-proto": 0,
+
+        // 禁止变量重新声明 var a = 3; var a = 4;
+        "no-redeclare": 2,
+
+        // 禁止在正则表达式中使用多个空格
+        "no-regex-spaces": 2,
+
+        // 允许您指定不想在应用程序中使用的模块 现关闭
+        "no-restricted-modules": 0,
+
+        // 在 return 语句中不允许赋值运算符
+        "no-return-assign": 2,
+
+        // 不禁止 javascript: 网址 location.href = "javascript:void(0)";
+        "no-script-url": 0,
+
+        // 禁止双方完全相同的比较 a === a
+        "no-self-compare": 2,
+
+        /*
+        禁止逗号运算符 a = b += 5, a + b;
+        禁止使用逗号运算符，但以下情况除外：
+
+            在 for 语句的初始化或更新部分。
+            默认情况下，如果表达式序列被显式包裹在括号中。可以使用 allowInParentheses 选项删除此异常。
+        */
+        "no-sequences": 2,
+
+        // 不禁止在外部作用域中声明的隐藏变量中的变量声明
+        "no-shadow": 0,
+
+        // 禁止标识符遮蔽受限名称  var undefined = "foo";
+        "no-shadow-restricted-names": 2,
+
+        // 虽然函数名和执行它的括号之间可以有空格，但这种模式看起来更像是错误 fn ()
+        "no-spaced-func": 2,
+
+        // 不允许具有 "holes" 的稀疏数组字面，其中逗号前面没有元素。它不适用于最后一个元素后面的逗号 [2, , 3]
+        "no-sparse-arrays": 2,
+
+        // 不防止在 Node.js 中调用同步方法 readFileSync 等
+        "no-sync": 0,
+
+        // 不禁止三元运算符
+        "no-ternary": 0,
+
+        // 在构造函数中调用 super() 之前禁止 this/super
+        "no-this-before-super": 2,
+
+        // 不允许将字面作为异常抛出 throw 2
+        "no-throw-literal": 2,
+
+        // 不允许在行尾出现尾随空格
+        "no-trailing-spaces": 2,
+
+        // 除非在 /*global */ 注释中提及，否则不允许使用未声明的变量
+        "no-undef": 2,
+
+        // 不禁止将变量初始化为 undefined
+        "no-undef-init": 0,
+
+        // 不禁止使用 undefined 作为标识符
+        "no-undefined": 0,
+
+        // 不禁止标识符中的悬空下划线 就标识符的命名约定而言，悬空下划线可能是 JavaScript 中最极端的。悬空下划线是标识符开头或结尾的下划线 例如 _foo
+        "no-underscore-dangle": 0,
+
+        // 禁止混淆多行表达式
+        "no-unexpected-multiline": 2,
+
+        // 当存在更简单的替代方案时，不允许使用三元运算符  var isYes = answer === 1 ? true : false; / var isYes = answer === 1
+        "no-unneeded-ternary": 2,
+
+        /*
+            在 return、throw、continue 和 break 语句之后禁止无法访问的代码
+                function fn() {
+                    x = 1;
+                    return x;
+                    x = 3; // this will never execute
+                }
+        */
+        "no-unreachable": 2,
+        
+        // 不禁止未使用的表达式 function increment() { i += 1; } increment() return的值未使用
+        "no-unused-expressions": 0,
+        
+        /*
+        禁止未使用的变量
+            vars 选项有两个设置：
+                all 检查所有变量的使用情况，包括全局范围内的变量。这是默认设置。
+                local 仅检查是否使用了本地声明的变量，但允许未使用全局变量
+            args 选项具有三个设置：
+                after-used - 在最后使用的参数之前出现的未使用的位置参数将不被检查，但将检查所有命名参数和最后使用的参数之后的所有位置参数。
+                all - 必须使用所有命名参数。
+                none - 不检查参数。
+        */
+        "no-unused-vars": [2, { "vars": "all", "args": "none" }],
+        
+        // 不禁止在定义之前使用变量
+        "no-use-before-define": 0,
+
+        // 不禁止使用 let 或 const 而不是 var
+        "no-var": 0,
+        
+        // 不禁止 void 运算符
+        "no-void": 0,
+
+        // 允许在注释中使用指定的警告词
+        "no-warning-comments": 0,
+        
+        // 禁止 with 语句
+        "no-with": 2,
+        
+        // 在大括号内不强制保持一致的间距
+        "object-curly-spacing": 0,
+
+        // 不要求或不禁止对象字面量的方法和属性简写语法
+        "object-shorthand": 0,
+
+        /*
+        两种流派
+            1. 函数中的所有变量都应该只有一个变量声明。该声明通常出现在函数的顶部
+            2. 您应该为要定义的每个变量使用一个变量声明
+
+            强制每个函数（对于 var）或块（对于 let 和 const）作用域一起或单独声明变量
+            "initialized": "never" 需要为每个作用域的初始化变量声明多个变量
+        */
+        "one-var": [2, { "initialized": "never" }],
+        
+        // 不禁止赋值运算符简写 x += 3 x >= 1
+        "operator-assignment": 0,
+        
+        /*
+        强制执行一致的换行样式
+            字符串选项：
+                "after" 要求在操作符后放置换行符
+                "before" 要求在操作符之前放置换行符
+                "none" 不允许在运算符的任一侧换行
+            对象选项：
+                "overrides" 覆盖指定运算符的全局设置
+                    ? 要在之前换行
+                    : 要在之前换行
+        */
+        "operator-linebreak": [2, "after", { "overrides": { "?": "before", ":": "before" } }],
+        
+        // 不禁止在块内填充
+        "padded-blocks": 0,
+            
+        // 不要求 声明后从不重新分配的变量需要 const 声明
+        "prefer-const": 0,
+                
+        // 不禁止在对象字面属性名称周围加上引号
+        "quote-props": 0,
+                
+        // 强制一致地使用反引号、双引号或单引号 double 尽可能使用双引号  avoid-escape 允许字符串使用单引号或双引号，只要字符串包含必须转义的引号
+        "quotes": [2, "double", "avoid-escape"],
+            
+        // 使用 parseInt() 时强制使用 radix 参数 规定进制
+        "radix": 2,
+        
+        // 要求在语句末尾总是有分号
+        "semi": [2, "always"],
+
+        // 不要求在分号前后强制保持一致的间距
+        "semi-spacing": 0,
+
+        // 不要求对同一声明块中的变量进行排序 var a, b, c, d; good var a, c, b, d; bad
+        "sort-vars": 0,
+
+        // 要求在关键字前后强制保持一致的间距 if () else {}
+        "keyword-spacing": 2,
+
+        // 强制块前间距的一致性。它仅适用于不在新行开始的块 总是要有空格 例如 { a: 1, b: 2 } 而不是 {a: 1, b: 2}
+        "space-before-blocks": [2, "always"],
+            
+        // 在 function 定义左括号之前强制保持一致的间距 function() {} never 不允许任何空格后跟 ( 参数
+        "space-before-function-paren": [2, "never"],
+
+        // 在括号内强制保持一致的间距 never 在括号内强制使用零空格 (a + b) 而不是 ( a + b )
+        "space-in-parens": [2, "never"],
+
+        // 中缀运算符周围需要间距 例如 + - index+++2 可读性差 index++ + 2
+        "space-infix-ops": 2,
+
+        /*
+        在一元运算符之前或之后强制执行一致的间距
+        此规则有三个选项：
+            words - 适用于一元字运算符，例如：new、delete、typeof、void、yield
+            nonwords - 适用于一元运算符，例如：-、+、--、++、!、!!
+            overrides - 为每个运算符、单词或非单词指定覆盖间距的使用。默认情况下为空，但可用于强制或禁止运算符周围的间距
+        */
+        "space-unary-ops": [2, { "words": true, "nonwords": false }],
+
+        /*
+        强制注释 // 或 /* 开始后的间距保持一致
+        该规则有两个选项。
+            第一个是一个字符串，它可以是 "always" 或 "never"。默认值为 "always"。
+            如果是 "always"，那么 // 或 /* 必须后跟至少一个空格。
+            如果 "never" 那么后面应该没有空格。
+
+        此规则还可以采用第二个选项，即具有以下任何键的对象："exceptions" 和 "markers"。
+            "exceptions" 值是一个字符串模式数组，被视为规则的例外。当模式从注释的开头开始并重复到行尾或多行注释末尾 如果注释是单行注释时，该规则不会发出警告。请注意，如果第一个参数是 "never"，则忽略异常。
+            "spaced-comment": ["error", "always", { "exceptions": ["-", "+"] }]
+            "markers" 值是一个字符串模式数组，被认为是 docblock 样式注释的标记，例如附加的 /，用于表示 doxygen、vsdoc 等必须具有附加字符的文档读取。无论第一个参数的值如何，"markers" 数组都将适用，例如"always" 或 "never"。
+            "spaced-comment": ["error", "always", { "markers": ["/"] }]
+            标记和异常之间的区别在于，标记只出现在注释的开头，而异常可以出现在注释字符串的任何位置。
+        */
+        "spaced-comment": [2, "always", { "markers": ["global", "globals", "eslint", "eslint-disable", "*package", "!"] }],
+
+        // 不禁止严格模式指令
+        "strict": 0,
+
+        // 规定 检查 NaN 时需要调用 isNaN()
+        "use-isnan": 2,
+
+        // 不强制执行有效且一致的 JSDoc 注释
+        "valid-jsdoc": 0,
+
+        // 强制将 typeof 表达式与有效字符串进行比较
+        "valid-typeof": 2,
+
+        // 不要求将 var 声明放在其包含范围的顶部
+        "vars-on-top": 0,
+
+        // 立即调用 function 需要括号
+        "wrap-iife": [2, "any"],
+
+        // 不要求正则表达式字面周围的括号
+        "wrap-regex": 0,
+
+        // 强制执行一致的条件样式，将变量与字面值进行比较 非 尤达条件 if red equals the color never 不是有尤达条件  if the color equals red 更加自然
+        "yoda": [2, "never"]
+    }
+}

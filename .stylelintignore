@@ -1,0 +1,24 @@
+# mini css
+*.min.css
+# other type files
+*.md
+*.js
+*.cjs
+*.mjs
+*.jsx
+*.json
+*.ts
+*.tsx
+*.ttf
+*.woff
+*.woff2
+*.svg
+*.png
+*.ico
+*.yaml
+# directory
+/test/
+/dist/
+/lib/
+/docs/
+/node_modules/

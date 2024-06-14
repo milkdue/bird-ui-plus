@@ -1,0 +1,10 @@
+{
+    "version": 2,
+    "name": "bird-ui-plus",
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "/"
+        }
+    ]
+}

@@ -1,0 +1,72 @@
+@import "./variable/index.less";
+
+:root {
+    --gray: @gray;
+    --white: @white;
+
+    --primary-color-light: @primary-color-light;
+    --link-color-light: @link-color-light;
+    --success-color-light: @success-color-light;
+    --warn-color-light: @warn-color-light;
+    --error-color-light: @error-color-light;
+
+    each(@level, {
+        --primary-color-light-@{value}: mix(@white, @primary-color-light, @value * 8%);
+        --link-color-light-@{value}: mix(@white, @link-color-light, @value * 8%);
+        --success-color-light-@{value}: mix(@white, @success-color-light, @value * 8%);
+        --warn-color-light-@{value}: mix(@white, @warn-color-light, @value * 8%);
+        --error-color-light-@{value}: mix(@white, @error-color-light, @value * 8%);
+        --gray-@{value}: mix(@white, @gray, @value * 8%);
+        @supports(color: color-mix(in srgb, red, blue)) {
+            --primary-color-light-@{value}: color-mix(in srgb, @primary-color-light, @white @value * 8%);
+            --link-color-light-@{value}: color-mix(in srgb, @link-color-light, @white @value * 8%);
+            --success-color-light-@{value}: color-mix(in srgb, @success-color-light, @white @value * 8%);
+            --warn-color-light-@{value}: color-mix(in srgb, @warn-color-light, @white @value * 8%);
+            --error-color-light-@{value}: color-mix(in srgb, @error-color-light, @white @value * 8%);
+            --gray-@{value}: color-mix(in srgb, @gray, @white @value * 8%);
+        }
+    });
+
+    --background-light-color-1: @background-light-color-1;
+    --background-light-color-2: @background-light-color-2;
+    --background-light-color-3: @background-light-color-3;
+    --background-light-color-4: @background-light-color-4;
+
+    --xs-width: @xs-width;
+    --sm-width: @sm-width;
+    --md-width: @md-width;
+    --lg-width: @lg-width;
+
+    --space-xs: @space-xs;
+    --space-sm: @space-sm;
+    --space-md: @space-md;
+    --space-lg: @space-lg;
+    --space-xl: @space-xl;
+
+    --line-color-xs: @line-color-xs;
+    --line-color-md: @line-color-md;
+    --line-color-lg: @line-color-lg;
+
+    --size-xs: @size-xs;
+    --size-sm: @size-sm;
+    --size-md: @size-md;
+    --size-lg: @size-lg;
+    --size-xl: @size-xl;
+
+    --radius-xl: @radius-xl;
+    --radius-lg: @radius-lg;
+    --radius-md: @radius-md;
+    --radius-sm: @radius-sm;
+    --radius-rd: @radius-rd;
+
+    --shadow-xs: @shadow-xs;
+    --shadow-md: @shadow-md;
+    --shadow-lg: @shadow-lg;
+
+    --font-color-lg: @font-color-lg;
+    --font-color-md: @font-color-md;
+    --font-color-sm: @font-color-sm;
+    --font-color-xs: @font-color-xs;
+
+    --animats: @animats;
+}

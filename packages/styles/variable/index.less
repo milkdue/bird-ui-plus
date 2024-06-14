@@ -1,0 +1,90 @@
+// 基础颜色
+// 主色 白天主题
+@primary-color-light: #2b5aed;
+// 链接
+@link-color-light: #1890ff;
+// 成功
+@success-color-light: #1fb4a2;
+// 警告
+@warn-color-light: #ffaa1a;
+// 错误
+@error-color-light: #fa5247;
+
+// 黑夜主题
+@primary-color-dark: #3575f6;
+@link-color-dark: #308ce1;
+@success-color-dark: #19ad78;
+@warn-color-dark: #f6a224;
+@error-color-dark: #df4d43;
+
+@gray: #1e2025;
+@white: #ffffff;
+
+// 主色渐变
+// 考虑 color-mix 的兼容性 chrome 大于 111 版本 使用@support
+
+// 定义级别 1 - 10   10个等级的领近色
+@level: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
+
+// 屏幕大小 按 min-width 计算
+@xs-width: 768px;
+@sm-width: 992px;
+@md-width: 1200px;
+@lg-width: 1920px;
+// xl 就是大于 1920 的屏幕
+
+@background-light-color-1: @white;
+@background-light-color-2: mix(#1e2025, @white, 3.6%);
+@background-light-color-3: mix(#1e2025, @white, 6.8%);
+@background-light-color-4: mix(#1e2025, @white, 9.4%);
+
+@gray-1: rgba(30, 32, 37, 0.08);
+@gray-2: rgba(30, 32, 37, 0.12);
+@gray-3: rgba(30, 32, 37, 0.16);
+@gray-4: rgba(30, 32, 37, 0.24);
+@gray-5: rgba(30, 32, 37, 0.32);
+@gray-6: rgba(30, 32, 37, 0.48);
+@gray-7: rgba(30, 32, 37, 0.64);
+@gray-8: rgba(30, 32, 37, 0.72);
+@gray-9: rgba(30, 32, 37, 0.88);
+@gray-10: @gray;
+
+//间距space
+@space-xs: 4px;
+@space-sm: 8px;
+@space-md: 12px;
+@space-lg: 16px;
+@space-xl: 24px;
+
+// line border color
+@line-color-xs: @gray-1;
+@line-color-md: @gray-3;
+@line-color-lg: @gray-4;
+
+// 字体
+@size-xs: 12px; // 小号
+@size-sm: 14px; // 主字号
+@size-md: 16px; // 大一号
+@size-lg: 18px; // 大二号
+@size-xl: 24px; // 特大号
+
+//radius
+@radius-xl: 16px;
+@radius-lg: 12px;
+@radius-md: 8px;
+@radius-sm: 4px;
+@radius-rd: 800px;
+
+//背景投影
+@shadow-xs: 0 6px 6px -2px rgba(0, 0, 0, 0.12);
+@shadow-md: 0 4px 16px 0 rgba(0, 0, 0, 0.16);
+@shadow-lg: 0 4px 48px 0 rgba(0, 0, 0, 0.12);
+
+// 字体颜色
+@font-color-lg: @gray-10;
+@font-color-md: @gray-8;
+@font-color-sm: @gray-6;
+@font-color-xs: @gray-5;
+
+// 动画过渡
+@animats: 0.3s;

@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+      "target": "ES2020",
+      "useDefineForClassFields": true,
+      "module": "ESNext",
+      "lib": ["ES2020", "DOM"],
+      "skipLibCheck": true,
+      "baseUrl": "./",
+      /* Bundler mode */
+      "moduleResolution": "bundler",
+      "noEmit": true,
+      // "allowImportingTsExtensions": true,
+      "resolveJsonModule": true,
+      "isolatedModules": false,
+      "noUncheckedIndexedAccess": true,
+      "strictNullChecks": false,
+      "allowJs": true,
+      "jsx": "preserve",
+      "paths": {
+        "@/*": ["src/*"],
+        "@bird/*": ["../packages/*"]
+      }
+    },
+    "exclude": ["docs/**", "node_modules/**", "dist/**"],
+    "include": ["src/**/*.tsx", "src/**/*.vue", "components.d.ts", "env.d.ts"],
+  }
+  

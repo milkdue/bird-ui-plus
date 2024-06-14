@@ -1,0 +1,70 @@
+@import "../variable/index.less";
+
+.bird-scrollbar {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    box-sizing: border-box;
+
+    &__wrap {
+        overflow: auto;
+        height: 100%;
+
+        &&--default-hide {
+            scrollbar-width: none;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    }
+
+    &__bar {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        border-radius: 4px;
+
+        &&--vertical {
+            top: 0;
+            width: 5px;
+
+            > div {
+                width: 100%;
+            }
+        }
+
+        &&--horizontal {
+            left: 0;
+            height: 5px;
+
+            > div {
+                height: 100%;
+            }
+        }
+    }
+
+    &__thumb {
+        position: relative;
+        width: 0;
+        height: 0;
+        border-radius: inherit;
+        background-color: color-mix(in srgb, #fff, @gray 20%);
+        cursor: pointer;
+
+        &:hover,
+        &:active {
+            background-color: color-mix(in srgb, #fff, @gray 40%);
+        }
+    }
+
+    .bird-fade-in-enter-active,
+    .bird-fade-in-leave-active {
+        transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+    }
+    .bird-fade-in-enter,
+    .bird-fade-in-leave-active {
+        opacity: 0;
+    }
+}

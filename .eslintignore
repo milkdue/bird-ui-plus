@@ -1,0 +1,11 @@
+*.sh
+node_modules
+lib
+*.md
+*.less
+*.woff
+*.ttf
+*.css
+src/assets/**/*
+docs
+packages/utils/popup-manager.js

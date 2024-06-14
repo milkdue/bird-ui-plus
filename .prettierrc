@@ -1,0 +1,22 @@
+{
+    "printWidth": 80,
+    "singleQuote": false,
+    "semi": true,
+    "overrides": [
+        {
+            "files": "*.ts",
+            "excludeFiles": [],
+            "options": {
+                "semi": false
+            }
+        }
+    ],
+    "bracketSpacing": true,
+    "htmlWhitespaceSensitivity": "ignore",
+    "endOfLine": "auto",
+    "trailingComma": "none",
+    "tabWidth": 4,
+    "useTabs": false,
+    "arrowParens": "avoid",
+    "vueIndentScriptAndStyle": true
+}
