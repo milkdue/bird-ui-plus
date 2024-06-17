@@ -48,11 +48,11 @@ const webpackBaseConfig = {
                                 path.resolve(
                                     __dirname,
                                     "../examples/src/assets/less/theme-variable.less"
+                                ),
+                                path.resolve(
+                                    __dirname,
+                                    "../packages/index.less"
                                 )
-                                // path.resolve(
-                                //     __dirname,
-                                //     "../packages/index.less"
-                                // )
                             ]
                         }
                     }
@@ -68,7 +68,7 @@ const webpackBaseConfig = {
                 }
             },
             {
-                test: /\.(ttf|woff2?|otf|svg)$/,
+                test: /\.(ttf|woff2?|otf)$/,
                 type: "asset/resource"
             },
             {
@@ -120,18 +120,18 @@ const webpackBaseConfig = {
                         noEmit: false
                     }
                 }
+            },
+            {
+                test: /\.svg$/,
+                loader: "svg-sprite-loader",
+                include: [
+                    path.resolve(__dirname, "../packages/icons"),
+                    path.resolve(__dirname, "../examples/src/assets/svgs")
+                ],
+                options: {
+                    symbolId: "svg-[name]"
+                }
             }
-            // {
-            //     test: /\.svg$/,
-            //     loader: "svg-sprite-loader",
-            //     include: [
-            //         path.resolve(__dirname, "../packages/icons"),
-            //         path.resolve(__dirname, "../examples/src/assets/svgs")
-            //     ],
-            //     options: {
-            //         symbolId: "svg-[name]"
-            //     }
-            // }
         ]
     },
     plugins: [

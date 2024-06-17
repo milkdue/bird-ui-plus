@@ -52,7 +52,7 @@ const $content = shallowRef<HTMLDivElement>();
 
 const wrapClass = computed(() => ({
     "bird-scrollbar__wrap": true,
-    "bird-scrollbar__wrap--native": props.native
+    "bird-scrollbar__wrap--default-hide": !props.native
 }));
 
 function handleResize(): void {
@@ -113,4 +113,8 @@ provide(
         wrapEl: $wrap,
     })
 );
+
+defineExpose({
+    wrapEl: $wrap
+});
 </script>

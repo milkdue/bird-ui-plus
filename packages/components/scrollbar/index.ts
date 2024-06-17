@@ -1,13 +1,13 @@
 import type { App } from "vue";
-import Scrollbar from "./src/index.vue";
+import BirdScrollbar from "./src/index.vue";
 import "../../styles/scrollbar/index.less";
 
 export default {
     install(app: App) {
-        app.component(Scrollbar.name!, Scrollbar);
+        app.component(BirdScrollbar.name!, BirdScrollbar);
     }
 }
 
 export {
-    Scrollbar
+    BirdScrollbar
 }

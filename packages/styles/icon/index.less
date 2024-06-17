@@ -1,0 +1,55 @@
+@import "../variable/index.less";
+
+.bird-svg-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: @gray-8;
+    cursor: pointer;
+    transition: color @animats;
+    .svg-icon {
+        width: 24px;
+        height: 24px;
+        fill: currentcolor;
+        font-size: inherit;
+
+        &.svg-loading,
+        &.svg-loading1 {
+            animation: rotating 1.5s linear infinite;
+
+            @keyframes rotating {
+                from {
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform: rotate(1turn);
+                }
+            }
+        }
+    }
+
+    &.bird-svg-icon__primary:hover {
+        color: @primary-color-light;
+    }
+
+    &.bird-svg-icon__ordinary {
+        color: @gray-6;
+        &:hover {
+            color: @gray-8;
+        }
+    }
+
+    &.bird-svg-icon__aux {
+        color: @gray-4;
+        &:hover {
+            color: @gray-6;
+        }
+        &:active {
+            color: @gray-8;
+        }
+    }
+
+    &.is-disabled {
+        cursor: not-allowed;
+    }
+}

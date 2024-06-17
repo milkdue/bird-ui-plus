@@ -22,6 +22,6 @@
       }
     },
     "exclude": ["docs/**", "node_modules/**", "dist/**"],
-    "include": ["src/**/*.tsx", "src/**/*.vue", "components.d.ts", "env.d.ts"],
+    "include": ["src/**/*.tsx", "src/**/*.vue", "components.d.ts", "env.d.ts"]
   }
   

@@ -1,9 +1,15 @@
 import type { App, Plugin } from "vue";
-import ScrollbarPlugin from "./components/scrollbar/index";
-import { Scrollbar } from "./components/scrollbar/index";
+import ScrollbarPlugin from "./components/scrollbar";
+import AnchorPlugin from "./components/anchor";
+import IconPlugin from "./components/icon";
+import { BirdScrollbar } from "./components/scrollbar";
+import { BirdAnchor } from "./components/anchor";
+import { BirdSvgIcon } from "./components/icon";
 
 const plugins: Plugin[] = [
-    ScrollbarPlugin
+    ScrollbarPlugin,
+    AnchorPlugin,
+    IconPlugin
 ]
 
 // 全局注册
@@ -16,5 +22,7 @@ export default {
 };
 
 export {
-    Scrollbar
+    BirdScrollbar,
+    BirdAnchor,
+    BirdSvgIcon
 }

@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./src/router";
 import TopBar from "./src/components/TopBar.vue";
 import NavBar from "./src/components/NavBar.vue";
+import DocPage from "./src/components/DocPage.vue";
 import BirdUI from "../packages";
 
 // ----
@@ -14,5 +15,6 @@ const app = createApp(App);
 app.use(router)
    .use(BirdUI);
 app.component(TopBar.name!, TopBar)
-   .component(NavBar.name!, NavBar);
+   .component(NavBar.name!, NavBar)
+   .component(DocPage.name!, DocPage);
 app.mount('#app');

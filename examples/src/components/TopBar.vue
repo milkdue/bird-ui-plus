@@ -1,7 +1,11 @@
 <template>
     <div class="top-bar">
         <router-link class="logo" to="/">
-            <img src="@/assets/svgs/logo.svg" />
+            <bird-svg-icon
+                name="logo"
+                width="36px"
+                height="36px"
+            ></bird-svg-icon>
             <span class="title">Bird-UI</span>
         </router-link>
         <div class="nav-links">
@@ -10,7 +14,12 @@
             </router-link>
             <a class="nav-item" :href="links.home" target="_blank">博客</a>
             <a class="nav-item" :href="links.github" target="_blank">
-                <img src="@/assets/svgs/github.svg" />
+                <bird-svg-icon
+                    name="github"
+                    width="14px"
+                    height="14px"
+                    fill="var(--gray)"
+                ></bird-svg-icon>
             </a>
         </div>
     </div>
