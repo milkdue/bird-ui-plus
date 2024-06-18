@@ -86,6 +86,10 @@ const links = ref({
                     width: 20px;
                     height: 20px;
                 }
+                &.router-link-active {
+                    font-weight: 600;
+                    color: var(--primary-color-light);
+                }
             }
         }
     }

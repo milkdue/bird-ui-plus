@@ -1,0 +1,69 @@
+@import "../variable/index.less";
+
+.bird-col {
+    // display: inline-block;
+    //! 不能 inline-block 要 float 这样 offset 宽度会整齐
+    float: left;
+
+    each(range(24), {
+        &.bird-col-@{value} {
+            width: (@value / 24) * 100%;
+        }
+
+        &.bird-col-offset-@{value} {
+            margin-left: (@value / 24) * 100%;
+        }
+    })
+
+    each(range(24), {
+        @media screen and (max-width: @xs-width) {
+            &.bird-col-xs-offset-@{value} {
+                margin-left: (@value / 24) * 100%;
+            }
+
+            &.bird-col-xs-@{value} {
+                width: (@value / 24) * 100%;
+            }
+        }
+
+        @media screen and (min-width: @xs-width) and (max-width: @sm-width) {
+            &.bird-col-sm-offset-@{value} {
+                margin-left: (@value / 24) * 100%;
+            }
+
+            &.bird-col-sm-@{value} {
+                width: (@value / 24) * 100%;
+            }
+        }
+
+        @media screen and (min-width: @sm-width) and (max-width: @md-width) {
+            &.bird-col-md-offset-@{value} {
+                margin-left: (@value / 24) * 100%;
+            }
+
+            &.bird-col-md-@{value} {
+                width: (@value / 24) * 100%;
+            }
+        }
+
+        @media screen and (min-width: @md-width) and (max-width: @lg-width) {
+            &.bird-col-lg-offset-@{value} {
+                margin-left: (@value / 24) * 100%;
+            }
+
+            &.bird-col-lg-@{value} {
+                width: (@value / 24) * 100%;
+            }
+        }
+
+        @media screen and (min-width: @lg-width) {
+            &.bird-col-xl-offset-@{value} {
+                margin-left: (@value / 24) * 100%;
+            }
+
+            &.bird-col-xl-@{value} {
+                width: (@value / 24) * 100%;
+            }
+        }
+    });
+}

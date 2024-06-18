@@ -154,8 +154,6 @@ const handleScroll = useDebounceFn(() => {
             }
         }
 
-        console.info(closedEL, "closedEL")
-
         active.value = `#${closedEL?.el.id}`
     }
 }, props.ms)

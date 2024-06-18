@@ -1,0 +1,33 @@
+@position: end, center, space-around, space-between, space-evenly;
+
+.bird-row {
+    position: relative;
+
+    &::before {
+        content: "";
+        display: table;
+    }
+
+    &::after {
+        display: table;
+        clear: both;
+        content: "";
+    }
+
+    &.bird-row--flex {
+        display: flex;
+    }
+
+    each(@position, {
+        &.is-justify-@{value} {
+            justify-content: if((@value = end), flex-end, @value);
+        }
+    })
+        &.is-align-middle {
+        align-items: center;
+    }
+
+    &.is-align-bottom {
+        align-items: flex-end;
+    }
+}

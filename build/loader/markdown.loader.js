@@ -126,19 +126,30 @@ module.exports = function markdownLoader(markdownContent) {
     //     </script>
     // `;
 
+    // const template = `
+    //     <template>
+    //         <bird-doc>
+    //             ${markdownContent}
+    //         </bird-doc>
+    //     </template>
+    //     <script>
+    //         ${importScripts.join(";")}
+    //         export default {
+    //             components: {
+    //                 ${componentNames.join(",")}
+    //             }
+    //         }
+    //     </script>
+    // `;
+
     const template = `
         <template>
             <bird-doc>
                 ${markdownContent}
             </bird-doc>
         </template>
-        <script>
+        <script setup>
             ${importScripts.join(";")}
-            export default {
-                components: {
-                    ${componentNames.join(",")}
-                }
-            }
         </script>
     `;
 

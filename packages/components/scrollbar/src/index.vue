@@ -35,9 +35,7 @@ const props = withDefaults(defineProps<ScrollbarProps>(), {
 const emits = defineEmits<{
     scroll: [e: Event]
 }>();
-const slots = defineSlots<{
-    default: () => any
-}>();
+
 const GAP = 4;
 const moveY = ref<number>(0);
 const moveX = ref<number>(0);
@@ -88,23 +86,15 @@ function handleScroll(event: Event): void {
 }
 
 onMounted(() => {
-    const defaultSlots = slots.default;
     handleResize();
     resizeObserver.value = new ResizeObserver(() => {
         handleResize();
     });
 
     resizeObserver.value.observe($scrollbar.value as Element);
-    defaultSlots && Array.isArray(defaultSlots) && defaultSlots.forEach(slot => {
-        resizeObserver.value && resizeObserver.value.observe(slot as Element);
-    });
 });
 onBeforeUnmount(() => {
-    const defaultSlots = slots.default;
     resizeObserver.value?.unobserve($scrollbar.value as Element);
-    defaultSlots && Array.isArray(defaultSlots) && defaultSlots.forEach(slot => {
-        resizeObserver.value?.unobserve(slot as Element);
-    });
 });
 provide(
     scrollbarContextKey,

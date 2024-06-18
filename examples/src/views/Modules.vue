@@ -18,7 +18,7 @@ const $scrollbar = ref(null);
 
 provide(
     wrapperKey,
-    () => $scrollbar.value.wrapEl
+    () => $scrollbar?.value?.wrapEl
 );
 
 </script>
