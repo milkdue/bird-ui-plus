@@ -1,0 +1,63 @@
+.bird-divider {
+    border: 0;
+    border-top-width: 1px;
+
+    &.hr-solid {
+        border-top-style: solid;
+    }
+
+    &.hr-dotted {
+        border-top-style: dotted;
+    }
+
+    &.hr-dashed {
+        border-top-style: dashed;
+    }
+
+    &.hr-double {
+        border-top-width: 3px;
+        border-top-style: double;
+    }
+
+    &.primary {
+        border-top-color: var(--primary-color-light);
+    }
+
+    &.success {
+        border-top-color: var(--success-color-light);
+    }
+
+    &.link {
+        border-top-color: var(--link-color-light);
+    }
+
+    &.warn {
+        border-top-color: var(--warn-color-light);
+    }
+
+    &.error {
+        border-top-color: var(--error-color-light);
+    }
+
+    &.hr-solid-content {
+        position: relative;
+        overflow: hidden;
+        padding: 1em 0;
+        font-size: var(--size-xs);
+        border: 0;
+        color: unset;
+
+        &::before {
+            position: absolute;
+            left: 50%;
+            padding: 0 1ch;
+            width: fit-content;
+            border: solid var(--divider-content-color);
+            white-space: nowrap;
+            content: attr(data-content);
+            line-height: var(--divider-content-width);
+            border-width: 0 100vw;
+            transform: translateX(-50%);
+        }
+    }
+}

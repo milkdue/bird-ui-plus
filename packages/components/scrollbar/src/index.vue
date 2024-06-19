@@ -92,9 +92,11 @@ onMounted(() => {
     });
 
     resizeObserver.value.observe($scrollbar.value as Element);
+    resizeObserver.value.observe($content.value as Element);
 });
 onBeforeUnmount(() => {
     resizeObserver.value?.unobserve($scrollbar.value as Element);
+    resizeObserver.value?.unobserve($content.value as Element);
 });
 provide(
     scrollbarContextKey,
