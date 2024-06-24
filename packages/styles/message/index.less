@@ -1,0 +1,54 @@
+@import "../variable/index.less";
+
+.bird-message-container {
+    position: fixed;
+    top: var(--space-lg);
+    z-index: 100;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    pointer-events: none;
+    flex-direction: column;
+}
+
+.bird-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--background-light-color-4);
+    border-radius: var(--radius-md);
+    color: var(--gray);
+    background: var(--background-light-color-1);
+    box-shadow: @shadow-lg;
+
+    .message-icon {
+        margin-right: var(--space-sm);
+
+        &.bird-svg-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    transition: all 0.3s;
+}
+
+.down-move,
+.down-enter-active,
+.down-leave-active {
+    transition: all 0.24s;
+    transform: translateY(0px);
+}
+
+.down-enter-from,
+.down-leave-to {
+    opacity: 0;
+    transform: translateY(-30px);
+}
+
+.down-leave-active {
+    position: absolute;
+}

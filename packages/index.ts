@@ -5,6 +5,7 @@ import IconPlugin from "./components/icon";
 import RowPlugin from "./components/row";
 import ColPlugin from "./components/col";
 import DividerPlugin from "./components/divider";
+import BirdMessage from "./components/message";
 import { BirdScrollbar } from "./components/scrollbar";
 import { BirdAnchor } from "./components/anchor";
 import { BirdSvgIcon } from "./components/icon";
@@ -26,7 +27,9 @@ export default {
     install(app: App) {
         plugins.forEach((plugin: Plugin) => {
             app.use(plugin);
-        })
+        });
+
+        app.config.globalProperties.$message = BirdMessage;
     }
 };
 
@@ -36,5 +39,6 @@ export {
     BirdSvgIcon,
     BirdRow,
     BirdCol,
-    BirdDivider
+    BirdDivider,
+    BirdMessage
 }

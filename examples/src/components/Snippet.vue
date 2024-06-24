@@ -33,7 +33,7 @@
 
 <script setup lang="ts">
 import { getHighlighter } from "shikiji";
-import { computed, ref } from "vue";
+import { computed, ref, getCurrentInstance, type ComponentInternalInstance } from "vue";
 
 defineOptions({
     name: "BirdSnippet"
@@ -46,6 +46,7 @@ const props = defineProps<{
 
 const showCode = ref<boolean>(false);
 const html = ref<string>("");
+const { proxy } = getCurrentInstance() as ComponentInternalInstance;
 
 const normalizeTitle = computed(() => {
     return props.title.replace(/\s+/g, "-");
@@ -70,16 +71,16 @@ function onCopy() {
     navigator.clipboard
         .writeText(text)
         .then(() => {
-            // this.$message({
-            //     type: "success",
-            //     message: "复制成功"
-            // });
+            proxy.$message({
+                type: "success",
+                message: "复制成功"
+            });
         })
         .catch(error => {
-            // this.$message({
-            //     type: "error",
-            //     message: error.message
-            // });
+            proxy.$message({
+                type: "error",
+                message: error.message
+            });
         });
 }
 </script>

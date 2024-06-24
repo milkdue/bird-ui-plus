@@ -21,6 +21,7 @@
 </template>
 
 <script setup lang="ts">
+import { getCurrentInstance, h } from "vue";
 import { getHighlighter } from "shikiji";
 import IconList from "./icon";
 
@@ -35,6 +36,8 @@ const shiki = getHighlighter({
     themes: ["vitesse-light", "vitesse-dark"],
     langs: ["vue"]
 });
+
+const { proxy } = getCurrentInstance();
 
 function clickButton(icon) {
     const text = `<bird-svg-icon name="${icon}"></bird-svg-icon>`;
@@ -51,17 +54,40 @@ function clickButton(icon) {
         navigator.clipboard
             .writeText(text)
             .then(() => {
-                // this.$message({
-                //     type: "success",
-                //     html: true,
-                //     message: `<div style="display: flex;"><span style="margin-right: 4px;">复制成功: </span>${html}</div>`
-                // });
+                proxy.$message({
+                    type: "success",
+                    message: h(
+                        "div",
+                        {
+                            style: {
+                                display: "flex"
+                            }
+                        },
+                        [
+                            h(
+                                "span",
+                                {
+                                    style: {
+                                        marginRight: "4px"
+                                    }
+                                },
+                                "复制成功: "
+                            ),
+                            h(
+                                "span",
+                                {
+                                    innerHTML: html
+                                }
+                            )
+                        ]
+                    )
+                });
             })
             .catch(error => {
-                // this.$message({
-                //     type: "error",
-                //     message: error.message
-                // });
+                proxy.$message({
+                    type: "error",
+                    message: error.message
+                });
             });
     });
 }
