@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, CSSProperties } from "vue";
+import { computed } from "vue";
 
 const types = ["link", "success", "warn", "error", "gray"];
 const boxStyle = computed(() => {
