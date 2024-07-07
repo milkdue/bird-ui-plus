@@ -1,0 +1,87 @@
+@import "../variable/index.less";
+
+@link-primary-color-hover: var(--primary-color-light-2);
+@link-primary-color-active: var(--primary-color-light-1);
+@link-success-color-hover: var(--success-color-light-2);
+@link-success-color-active: var(--success-color-light-1);
+@link-warning-color-hover: var(--warn-color-light-2);
+@link-warning-color-active: var(--warn-color-light-1);
+@link-danger-color-hover: var(--error-color-light-2);
+@link-danger-color-active: var(--error-color-light-1);
+
+a.bird-link {
+    font-size: @size-sm;
+    font-weight: 500;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    position: relative;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+    color: @link-color-light;
+
+    &__primary {
+        color: @primary-color-light;
+    }
+    &__warning {
+        color: @warn-color-light;
+    }
+    &__success {
+        color: @success-color-light;
+    }
+    &__danger {
+        color: @error-color-light;
+    }
+
+    &:not(&__disabled):hover {
+        color: var(--link-color-light-2);
+    }
+    &:not(&__disabled):visited,
+    &:not(&__disabled):active {
+        color: var(--link-color-light-1);
+    }
+
+    &__disabled {
+        opacity: 0.56;
+        cursor: not-allowed;
+    }
+    &__underline:hover::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 0;
+        bottom: 0;
+        border-bottom: 1px solid;
+        border-color: var(--link-color-light-2);
+    }
+
+    .link-type(@type) {
+        .hover() {
+            color: ~"@{link-@{type}-color-hover}";
+        }
+        .active() {
+            color: ~"@{link-@{type}-color-active}";
+        }
+
+        &.bird-link__@{type}:not(&__disabled):hover {
+            .hover();
+        }
+        &.bird-link__@{type}:not(&__disabled):visited,
+        &.bird-link__@{type}:not(&__disabled):active {
+            .active();
+        }
+        &.bird-link__@{type}.bird-link__underline:hover::after {
+            border-color: ~"@{link-@{type}-color-hover}";
+        }
+    }
+
+    .link-type(primary);
+    .link-type(success);
+    .link-type(warning);
+    .link-type(danger);
+}

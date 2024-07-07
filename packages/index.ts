@@ -6,6 +6,7 @@ import RowPlugin from "./components/row";
 import ColPlugin from "./components/col";
 import DividerPlugin from "./components/divider";
 import ButtonPlugin from "./components/button";
+import LinkPlugin from "./components/link";
 import BirdMessage from "./components/message";
 import { BirdScrollbar } from "./components/scrollbar";
 import { BirdAnchor } from "./components/anchor";
@@ -14,6 +15,7 @@ import { BirdRow } from "./components/row";
 import { BirdCol } from "./components/col";
 import { BirdDivider } from "./components/divider";
 import { BirdButton } from "./components/button";
+import { BirdLink } from "./components/link";
 
 const plugins: Plugin[] = [
     ScrollbarPlugin,
@@ -22,7 +24,8 @@ const plugins: Plugin[] = [
     RowPlugin,
     ColPlugin,
     DividerPlugin,
-    ButtonPlugin
+    ButtonPlugin,
+    LinkPlugin
 ]
 
 // 全局注册
@@ -44,5 +47,6 @@ export {
     BirdCol,
     BirdDivider,
     BirdButton,
-    BirdMessage
+    BirdMessage,
+    BirdLink
 }
