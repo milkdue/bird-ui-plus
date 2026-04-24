@@ -22,7 +22,11 @@ const generalRoutes = [
     {
         path: "link",
         component: () => import("@/demos/link/doc.md")
+    },
+    {
+        path: "tooltip",
+        component: () => import("@/demos/tooltip/doc.md")
     }
-];
+]
 
-export default generalRoutes;
+export default generalRoutes
